@@ -1,0 +1,284 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* ── Dark mode (default) ── */
+  body {
+    @apply bg-ink-950 text-ink-100 antialiased;
+    font-feature-settings: "ss01", "cv11";
+    transition: background-color 0.3s ease, color 0.2s ease;
+  }
+
+  ::selection {
+    background-color: rgba(124, 92, 255, 0.35);
+    color: #fff;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #05070d; }
+  ::-webkit-scrollbar-thumb { background: #3a4153; border-radius: 8px; }
+  ::-webkit-scrollbar-thumb:hover { background: #525e78; }
+}
+
+/* ──────────────────────────────────────────
+   LIGHT MODE OVERRIDES  (html without .dark)
+   ────────────────────────────────────────── */
+
+html:not(.dark) body {
+  background-color: #f5f6fa;
+  color: #0b0f1a;
+}
+
+/* Scrollbar */
+html:not(.dark) ::-webkit-scrollbar-track { background: #eceef2; }
+html:not(.dark) ::-webkit-scrollbar-thumb { background: #b0b9c9; }
+html:not(.dark) ::-webkit-scrollbar-thumb:hover { background: #8593ab; }
+
+/* Flip ink text colours so dark → readable on white */
+html:not(.dark) .text-ink-100 { color: #0b0f1a; }
+html:not(.dark) .text-ink-200 { color: #3a4153; }
+html:not(.dark) .text-ink-300 { color: #525e78; }
+html:not(.dark) .text-ink-400 { color: #677591; }
+
+/* Dark-mode surfaces become light surfaces */
+html:not(.dark) .bg-ink-900 { background-color: #e8eaf0; }
+html:not(.dark) .bg-ink-950 { background-color: #f5f6fa; }
+
+/* Hero aurora: reduce opacity to suit light bg */
+html:not(.dark) .bg-aurora {
+  background:
+    radial-gradient(60% 60% at 20% 10%, rgba(124, 92, 255, 0.10) 0%, transparent 60%),
+    radial-gradient(50% 50% at 80% 20%, rgba(46, 196, 247, 0.07) 0%, transparent 60%),
+    radial-gradient(40% 40% at 50% 80%, rgba(255, 102, 196, 0.05) 0%, transparent 60%);
+}
+
+/* Grid dots: use dark lines on light bg */
+html:not(.dark) .bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+/* Gradient heading: dark→accent in light mode */
+html:not(.dark) .gradient-text {
+  background-image: linear-gradient(to bottom right, #0b0f1a, #434c62, #7c5cff);
+}
+
+/* Cards */
+html:not(.dark) .card {
+  background-color: rgba(255, 255, 255, 0.92);
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+html:not(.dark) .card:hover {
+  background-color: #ffffff;
+  border-color: rgba(124, 92, 255, 0.28);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+/* Chips */
+html:not(.dark) .chip {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.09);
+  color: #434c62;
+}
+html:not(.dark) .chip:hover {
+  border-color: rgba(124, 92, 255, 0.3);
+  color: #0b0f1a;
+}
+
+/* Eyebrow labels */
+html:not(.dark) .eyebrow {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #677591;
+}
+
+/* Ghost button */
+html:not(.dark) .btn-ghost {
+  border-color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.02);
+  color: #0b0f1a;
+}
+html:not(.dark) .btn-ghost:hover {
+  border-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #0b0f1a;
+}
+
+/* Nav links */
+html:not(.dark) .nav-link {
+  color: #525e78;
+}
+html:not(.dark) .nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: #0b0f1a;
+}
+
+/* Mobile menu */
+html:not(.dark) .mobile-menu {
+  background-color: rgba(255, 255, 255, 0.92);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+html:not(.dark) .mobile-menu-link {
+  color: #0b0f1a;
+}
+html:not(.dark) .mobile-menu-link:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: #0b0f1a;
+}
+html:not(.dark) .mobile-menu-btn {
+  border-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.02);
+  color: #434c62;
+}
+
+/* White text inside cards → dark in light mode */
+html:not(.dark) .card .text-white,
+html:not(.dark) .card h3,
+html:not(.dark) .card h4 {
+  color: #0b0f1a;
+}
+
+/* Heading text-white used directly in sections */
+html:not(.dark) h2.text-white,
+html:not(.dark) h3.text-white,
+html:not(.dark) h4.text-white {
+  color: #0b0f1a;
+}
+
+/* "thoughtful" highlight word in hero */
+html:not(.dark) .thoughtful-word {
+  color: #3b2db5; /* deep accent, readable on light bg */
+}
+html:not(.dark) .thoughtful-glow {
+  background-color: rgba(124, 92, 255, 0.12);
+  height: 2px;
+  bottom: 0;
+  blur: none;
+  filter: none;
+}
+
+/* Education / Skills section heading icons */
+html:not(.dark) .section-icon-wrap {
+  background-color: rgba(124, 92, 255, 0.08);
+}
+
+/* ThemeToggle button */
+html:not(.dark) .group[aria-label] {
+  border-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.02);
+  color: #677591;
+}
+
+/* Timeline dot wrapper in Experience */
+html:not(.dark) .timeline-icon {
+  background-color: #eceef2;
+  border-color: rgba(0, 0, 0, 0.07);
+}
+
+/* Contact CTA card glow blobs: softer in light mode */
+html:not(.dark) .contact-blob-purple { opacity: 0.25; }
+html:not(.dark) .contact-blob-pink   { opacity: 0.18; }
+
+/* Contact outer card */
+html:not(.dark) .contact-card {
+  background: linear-gradient(to bottom right, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Volunteer placeholder dashed card */
+html:not(.dark) .border-dashed {
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* Footer */
+html:not(.dark) footer {
+  border-color: rgba(0, 0, 0, 0.07);
+  color: #677591;
+}
+html:not(.dark) footer a:hover { color: #0b0f1a; }
+
+/* Social link rows in contact */
+html:not(.dark) .social-link-row {
+  border-color: rgba(0, 0, 0, 0.07);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+html:not(.dark) .social-link-row:hover {
+  border-color: rgba(124, 92, 255, 0.28);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-10;
+  }
+
+  .section {
+    @apply scroll-mt-20 py-16 sm:py-24 md:py-32;
+  }
+
+  .eyebrow {
+    @apply mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-mono text-xs uppercase tracking-[0.18em] text-ink-300;
+  }
+
+  .heading-xl {
+    @apply font-display text-3xl font-semibold leading-[1.05] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  .heading-lg {
+    @apply font-display text-2xl font-semibold leading-tight tracking-tight sm:text-3xl md:text-4xl;
+  }
+
+  .heading-md {
+    @apply font-display text-xl font-semibold tracking-tight sm:text-2xl md:text-3xl;
+  }
+
+  .card {
+    @apply relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-sm transition-all duration-300 hover:border-accent/40 hover:bg-white/[0.04];
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 font-mono text-xs text-ink-200 transition-colors hover:border-accent/40 hover:text-white;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white shadow-[0_10px_40px_-10px_rgba(124,92,255,0.7)] transition-all hover:bg-accent-glow hover:shadow-[0_18px_50px_-10px_rgba(124,92,255,0.9)] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-ink-950;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-5 py-2.5 text-sm font-medium text-ink-100 transition-all hover:border-white/30 hover:bg-white/[0.06] hover:text-white;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-br from-white via-ink-100 to-accent-soft bg-clip-text text-transparent;
+  }
+
+  .link-underline {
+    @apply relative inline-block after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full;
+  }
+}
+
+/* Soft glow used behind hero */
+.bg-aurora {
+  background:
+    radial-gradient(60% 60% at 20% 10%, rgba(124, 92, 255, 0.18) 0%, transparent 60%),
+    radial-gradient(50% 50% at 80% 20%, rgba(46, 196, 247, 0.12) 0%, transparent 60%),
+    radial-gradient(40% 40% at 50% 80%, rgba(255, 102, 196, 0.1) 0%, transparent 60%);
+}
+
+/* Subtle grid overlay */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 40%, transparent 100%);
+}
