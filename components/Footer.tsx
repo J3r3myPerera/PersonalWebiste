@@ -5,11 +5,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/5 py-10">
       <div className="container-page flex flex-col items-center justify-between gap-4 text-sm text-ink-400 sm:flex-row">
-        <p>
-          © {year} Jeremy Perera. Built with{" "}
-          <span className="text-ink-200">Next.js</span> &{" "}
-          <span className="text-ink-200">Tailwind CSS</span>.
-        </p>
+        <p>© {year} Jeremy Perera.</p>
         <div className="flex items-center gap-4">
           <a
             href="https://github.com/J3r3myPerera"

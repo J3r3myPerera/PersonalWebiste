@@ -9,11 +9,15 @@ const groups = [
   },
   {
     title: "Frameworks & Tools",
-    items: ["Next.js", "React", "Node.js", "Tailwind CSS", "Firebase", "Scikit-Learn"],
+    items: ["Next.js", "React", "Node.js", "Tailwind CSS", "Firebase", "FastAPI", "Flower (flwr)", "WandB", "Plotly"],
+  },
+  {
+    title: "ML & Data",
+    items: ["PyTorch", "Scikit-Learn", "Federated Learning", "MLP Neural Networks", "Data Preprocessing"],
   },
   {
     title: "Practices",
-    items: ["Agile", "Git & GitHub", "Code Review", "Testing", "Problem Solving"],
+    items: ["Agile", "Git & GitHub", "CI/CD", "Code Review", "Testing", "Problem Solving"],
   },
   {
     title: "Strengths",
@@ -41,7 +45,7 @@ export default function Skills() {
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {groups.map((g, i) => (
             <motion.div
               key={g.title}
