@@ -13,7 +13,7 @@ const socials = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    handle: "/in/dinuka-jeremy",
+    handle: "dinuka-jeremy",
     href: "https://linkedin.com/in/dinuka-jeremy",
   },
   {
