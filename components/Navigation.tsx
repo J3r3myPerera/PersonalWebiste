@@ -12,6 +12,7 @@ const links = [
   { href: "#projects", label: "Projects" },
   { href: "#education", label: "Education" },
   { href: "#volunteer", label: "Volunteer" },
+  { href: "#opensource", label: "Open Source" },
   { href: "#contact", label: "Contact" },
 ];
 
