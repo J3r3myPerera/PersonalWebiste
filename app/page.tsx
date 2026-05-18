@@ -6,6 +6,7 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import VolunteerWork from "@/components/VolunteerWork";
+import OpenSource from "@/components/OpenSource";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Projects />
       <Education />
       <VolunteerWork />
+      <OpenSource />
       <Contact />
       <Footer />
     </main>

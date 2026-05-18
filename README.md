@@ -37,6 +37,7 @@ components/
   Projects.tsx
   Education.tsx
   VolunteerWork.tsx
+  OpenSource.tsx
   Contact.tsx
   Footer.tsx
   ThemeProvider.tsx

@@ -40,7 +40,7 @@ export default function Contact() {
 
           <div className="relative grid gap-10 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-7">
-              <span className="eyebrow">07 — Contact</span>
+              <span className="eyebrow">08 — Contact</span>
               <h2 className="heading-lg">
                 Got an idea, role, or just want to say hi?
               </h2>
