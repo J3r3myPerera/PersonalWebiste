@@ -20,9 +20,9 @@ const volunteerProjects: VolunteerProject[] = [
     period: "Ongoing",
     description:
       "Designed, built, and continue to actively develop the official website for St. Mary's Church. A volunteer effort to give the parish a modern, accessible digital presence — covering services, events, and community information.",
-    tags: ["Web Development", "HTML", "CSS", "JavaScript", "Volunteer"],
-    href: "https://github.com/J3r3myPerera/StMarysChurchWebsite",
-    status: "ongoing",
+    tags: ["Web Development", "HTML", "CSS", "JavaScript"],
+    href: "https://stmarysmaharagama.org/",
+    status: "live",
   },
 ];
 
@@ -101,33 +101,21 @@ export default function VolunteerWork() {
                 </p>
               </div>
 
-              <div className="mt-5 flex flex-wrap gap-2">
-                {p.tags.map((t) => (
-                  <span key={t} className="chip">
-                    {t}
-                  </span>
-                ))}
+              <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+                <div className="flex flex-wrap gap-2">
+                  {p.tags.map((t) => (
+                    <span key={t} className="chip">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <span className="font-mono text-[11px] text-ink-400">
+                  {p.href.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                </span>
               </div>
             </motion.a>
           ))}
 
-          {/* Placeholder card — easy for Jeremy to add future volunteer projects */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex items-center justify-center rounded-2xl border border-dashed border-white/10 p-8 text-center"
-          >
-            <div>
-              <p className="text-sm font-medium text-ink-300">
-                More to come.
-              </p>
-              <p className="mt-1 text-sm text-ink-400">
-                Always looking for meaningful projects to contribute to.
-              </p>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

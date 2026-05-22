@@ -16,6 +16,28 @@ type Contribution = {
 
 const contributions: Contribution[] = [
   {
+    title: "transformers",
+    upstream: "huggingface/transformers",
+    upstreamHref: "https://github.com/huggingface/transformers",
+    fork: "J3r3myPerera/transformers",
+    forkHref: "https://github.com/J3r3myPerera/transformers",
+    description:
+      "The model-definition framework for state-of-the-art machine learning — spanning text, vision, audio, and multimodal models for both inference and training. Actively contributing code and reviewing pull requests on one of the most widely used ML libraries in the world.",
+    role: "Contributor · Code Reviewer",
+    tags: ["Python", "Machine Learning", "NLP", "Hugging Face"],
+  },
+  {
+    title: "prefect",
+    upstream: "PrefectHQ/prefect",
+    upstreamHref: "https://github.com/PrefectHQ/prefect",
+    fork: "J3r3myPerera/prefect",
+    forkHref: "https://github.com/J3r3myPerera/prefect",
+    description:
+      "A workflow orchestration framework for building resilient data pipelines in Python — making it straightforward to add scheduling, retries, caching, and event-driven automation to any script.",
+    role: "Contributor",
+    tags: ["Python", "TypeScript", "Workflow Orchestration", "Data Pipelines"],
+  },
+  {
     title: "stats",
     upstream: "exelban/stats",
     upstreamHref: "https://github.com/exelban/stats",
@@ -24,7 +46,7 @@ const contributions: Contribution[] = [
     description:
       "A feature-rich macOS menu bar system monitor covering CPU, GPU, memory, disk, network, battery, sensors, and Bluetooth devices. Contributing to one of the most popular open-source macOS utilities, written primarily in Swift.",
     role: "Contributor",
-    tags: ["Swift", "macOS", "Open Source", "System Monitoring"],
+    tags: ["Swift", "macOS", "System Monitoring"],
   },
   {
     title: "running-heatmap",
@@ -50,12 +72,12 @@ export default function OpenSource() {
           </h2>
           <p className="mt-4 text-ink-300">
             I believe in giving back to the tools and communities that make
-            software better. Here are a couple of open-source projects I&apos;m
+            software better. Here are the open-source projects I&apos;m
             actively contributing to.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2">
           {contributions.map((c, i) => (
             <motion.div
               key={c.title}
@@ -65,7 +87,6 @@ export default function OpenSource() {
               transition={{ duration: 0.5, delay: i * 0.06 }}
               className="card flex flex-col"
             >
-              {/* Header */}
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
                   <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-accent/10 text-accent-soft ring-1 ring-accent/20">
@@ -86,13 +107,11 @@ export default function OpenSource() {
                 </a>
               </div>
 
-              {/* Body */}
               <div className="mt-5 flex-1">
                 <h3 className="font-display text-base font-semibold text-white sm:text-lg">
                   {c.title}
                 </h3>
 
-                {/* Fork lineage */}
                 <div className="mt-1 flex items-center gap-1.5 font-mono text-[11px] text-ink-400">
                   <GitFork size={11} />
                   <span>forked from</span>
@@ -111,7 +130,6 @@ export default function OpenSource() {
                 </p>
               </div>
 
-              {/* Tags + repo link */}
               <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
                 <div className="flex flex-wrap gap-2">
                   {c.tags.map((t) => (

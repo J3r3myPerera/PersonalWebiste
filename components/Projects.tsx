@@ -29,7 +29,6 @@ const projects: Project[] = [
       "AI-powered web application for stock price prediction. Led the team and contributed to the data science component. Selected to participate in Microsoft Imagine Cup 2023.",
     tags: ["Team Lead", "Data Science", "Python", "Web"],
     highlight: true,
-    href: "#",
   },
   {
     title: "MLP Neural Networks & Partitioning Clustering",
@@ -37,7 +36,6 @@ const projects: Project[] = [
     description:
       "Energy-forecasting research project in R: pre-processed a real-world dataset, performed partitioning clustering, and built an MLP neural network for prediction.",
     tags: ["R", "Machine Learning", "Forecasting"],
-    href: "#",
   },
   {
     title: "Appointment Application",
@@ -45,7 +43,6 @@ const projects: Project[] = [
     description:
       "Desktop-style doctor appointment system built in Java, with a clean Java Swing GUI and structured OOP design.",
     tags: ["Java", "Swing", "OOP"],
-    href: "#",
   },
   {
     title: "HTTP & Java Server",
@@ -53,7 +50,6 @@ const projects: Project[] = [
     description:
       "Built a small HTTP server and a Java client that talks to it through a local server port — a hands-on dive into networking fundamentals.",
     tags: ["Java", "HTTP", "Networking"],
-    href: "#",
   },
   {
     title: "Hotel Booking Application",
@@ -61,7 +57,6 @@ const projects: Project[] = [
     description:
       "Hotel reservation system implemented in Java with a focus on clean state management and a simple, usable interface.",
     tags: ["Java", "OOP"],
-    href: "#",
   },
   {
     title: "Personal Website Projects",
@@ -69,7 +64,6 @@ const projects: Project[] = [
     description:
       "A series of personal site experiments hosted on Firebase, built with vanilla HTML, CSS, and JavaScript.",
     tags: ["HTML", "CSS", "JS", "Firebase"],
-    href: "#",
   },
   {
     title: "The Art of Coffee",
@@ -77,7 +71,6 @@ const projects: Project[] = [
     description:
       "Group coursework: a small e-commerce-style coffee ordering site with an add-to-cart flow, built in HTML, CSS, and JavaScript.",
     tags: ["Team Project", "Frontend", "JS"],
-    href: "#",
   },
   {
     title: "The Score — Cricket Scoring App",
@@ -85,7 +78,6 @@ const projects: Project[] = [
     description:
       "Cricket scoring application built in Python as part of the college team — advanced to the competition quarter-finals.",
     tags: ["Python", "Competition"],
-    href: "#",
   },
 ];
 
@@ -105,15 +97,18 @@ export default function Projects() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p, i) => (
-            <motion.a
+          {projects.map((p, i) => {
+            const Tag = p.href ? motion.a : motion.div;
+            const linkProps = p.href ? { href: p.href, target: "_blank", rel: "noreferrer" } : {};
+            return (
+            <Tag
               key={p.title}
-              href={p.href ?? "#"}
+              {...(linkProps as object)}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.45, delay: (i % 6) * 0.05 }}
-              className={`card group flex flex-col ${
+              className={`card flex flex-col ${p.href ? "group" : ""} ${
                 p.highlight
                   ? "md:col-span-2 lg:col-span-2 lg:row-span-1"
                   : ""
@@ -150,8 +145,9 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
-            </motion.a>
-          ))}
+            </Tag>
+            );
+          })}
         </div>
       </div>
     </section>

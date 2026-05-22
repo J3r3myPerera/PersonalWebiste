@@ -44,3 +44,18 @@ components/
   ThemeToggle.tsx
 tailwind.config.ts # Custom theme (colors, fonts, animations)
 ```
+
+## Open source contributions
+
+| Project | Upstream | Role |
+| ------- | -------- | ---- |
+| [J3r3myPerera/transformers](https://github.com/J3r3myPerera/transformers) | [huggingface/transformers](https://github.com/huggingface/transformers) | Contributor · Code Reviewer |
+| [J3r3myPerera/prefect](https://github.com/J3r3myPerera/prefect) | [PrefectHQ/prefect](https://github.com/PrefectHQ/prefect) | Contributor |
+| [J3r3myPerera/stats](https://github.com/J3r3myPerera/stats) | [exelban/stats](https://github.com/exelban/stats) | Contributor |
+| [J3r3myPerera/running-heatmap](https://github.com/J3r3myPerera/running-heatmap) | [moresamwilson/running-heatmap](https://github.com/moresamwilson/running-heatmap) | Contributor |
+
+## Volunteer work
+
+| Project | Link | Status |
+| ------- | ---- | ------ |
+| St. Mary's Church Website | [stmarysmaharagama.org](https://stmarysmaharagama.org/) | Live |
