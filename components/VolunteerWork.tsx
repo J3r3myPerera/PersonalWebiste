@@ -19,7 +19,7 @@ const volunteerProjects: VolunteerProject[] = [
     org: "St. Mary's Church",
     period: "Ongoing",
     description:
-      "Designed, built, and continue to actively develop the official website for St. Mary's Church. A volunteer effort to give the parish a modern, accessible digital presence — covering services, events, and community information.",
+      "Designed, built and continue to actively develop the official website for St. Mary's Church. A volunteer effort to give the parish a modern, accessible digital presence — covering services, events and community information.",
     tags: ["Web Development", "HTML", "CSS", "JavaScript"],
     href: "https://stmarysmaharagama.org/",
     status: "live",
@@ -115,7 +115,6 @@ export default function VolunteerWork() {
               </div>
             </motion.a>
           ))}
-
         </div>
       </div>
     </section>

@@ -5,19 +5,51 @@ import { motion } from "framer-motion";
 const groups = [
   {
     title: "Languages",
-    items: ["Java", "Python", "JavaScript", "TypeScript", "SQL", "R", "HTML", "CSS"],
+    items: [
+      "Java",
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "SQL",
+      "R",
+      "HTML",
+      "CSS",
+    ],
   },
   {
     title: "Frameworks & Tools",
-    items: ["Next.js", "React", "Node.js", "Tailwind CSS", "Firebase", "FastAPI", "Flower (flwr)", "WandB", "Plotly"],
+    items: [
+      "Next.js",
+      "React",
+      "Node.js",
+      "Tailwind CSS",
+      "Firebase",
+      "FastAPI",
+      "Flower (flwr)",
+      "WandB",
+      "Plotly",
+    ],
   },
   {
     title: "ML & Data",
-    items: ["PyTorch", "Scikit-Learn", "Federated Learning", "MLP Neural Networks", "Data Preprocessing"],
+    items: [
+      "PyTorch",
+      "Scikit-Learn",
+      "Federated Learning",
+      "MLP Neural Networks",
+      "Data Preprocessing",
+    ],
   },
   {
     title: "Practices",
-    items: ["Agile", "Git & GitHub", "CI/CD", "Code Review", "Testing", "Problem Solving"],
+    items: [
+      "Agile",
+      "Git & GitHub",
+      "CI/CD",
+      "Code Review",
+      "Testing",
+      "Problem Solving",
+    ],
   },
   {
     title: "Strengths",
@@ -40,8 +72,8 @@ export default function Skills() {
           <span className="eyebrow">03 — Skills</span>
           <h2 className="heading-lg">The toolkit I bring to a problem.</h2>
           <p className="mt-4 text-ink-300">
-            A mix of languages, frameworks, and habits I&apos;ve picked up
-            through coursework, projects, and shipping real software.
+            A mix of languages, frameworks and habits I&apos;ve picked up
+            through coursework, projects and shipping real software.
           </p>
         </div>
 
