@@ -171,7 +171,7 @@ html:not(.dark) .section-icon-wrap {
 }
 
 /* ThemeToggle button */
-html:not(.dark) .group[aria-label] {
+html:not(.dark) .theme-toggle {
   border-color: rgba(0, 0, 0, 0.1);
   background-color: rgba(0, 0, 0, 0.02);
   color: #677591;
