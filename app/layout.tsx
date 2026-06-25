@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Jeremy Perera — Associate Software Developer",
   description:
-    "Personal site of Jeremy Perera — Associate Software Developer at IFS. Building thoughtful software, exploring data, and shipping ideas.",
+    "Personal site of Jeremy Perera — Associate Software Developer at IFS. Building thoughtful software, exploring data and shipping ideas.",
   keywords: [
     "Jeremy Perera",
     "Dinuka Perera",

@@ -22,7 +22,7 @@ const contributions: Contribution[] = [
     fork: "J3r3myPerera/transformers",
     forkHref: "https://github.com/J3r3myPerera/transformers",
     description:
-      "The model-definition framework for state-of-the-art machine learning — spanning text, vision, audio, and multimodal models for both inference and training. Actively contributing code and reviewing pull requests on one of the most widely used ML libraries in the world.",
+      "The model-definition framework for state-of-the-art machine learning — spanning text, vision, audio and multimodal models for both inference and training. Actively contributing code and reviewing pull requests on one of the most widely used ML libraries in the world.",
     role: "Contributor · Code Reviewer",
     tags: ["Python", "Machine Learning", "NLP", "Hugging Face"],
   },
@@ -33,7 +33,7 @@ const contributions: Contribution[] = [
     fork: "J3r3myPerera/prefect",
     forkHref: "https://github.com/J3r3myPerera/prefect",
     description:
-      "A workflow orchestration framework for building resilient data pipelines in Python — making it straightforward to add scheduling, retries, caching, and event-driven automation to any script.",
+      "A workflow orchestration framework for building resilient data pipelines in Python — making it straightforward to add scheduling, retries, caching and event-driven automation to any script.",
     role: "Contributor",
     tags: ["Python", "TypeScript", "Workflow Orchestration", "Data Pipelines"],
   },
@@ -44,7 +44,7 @@ const contributions: Contribution[] = [
     fork: "J3r3myPerera/stats",
     forkHref: "https://github.com/J3r3myPerera/stats",
     description:
-      "A feature-rich macOS menu bar system monitor covering CPU, GPU, memory, disk, network, battery, sensors, and Bluetooth devices. Contributing to one of the most popular open-source macOS utilities, written primarily in Swift.",
+      "A feature-rich macOS menu bar system monitor covering CPU, GPU, memory, disk, network, battery, sensors and Bluetooth devices. Contributing to one of the most popular open-source macOS utilities, written primarily in Swift.",
     role: "Contributor",
     tags: ["Swift", "macOS", "System Monitoring"],
   },
@@ -55,7 +55,7 @@ const contributions: Contribution[] = [
     fork: "J3r3myPerera/running-heatmap",
     forkHref: "https://github.com/J3r3myPerera/running-heatmap",
     description:
-      "Turns a Strava data export into an interactive HTML heatmap with six switchable layers — frequency (linear & log), pace, heart rate, and gradient (absolute & directional). No API key needed, just your Strava zip export.",
+      "Turns a Strava data export into an interactive HTML heatmap with six switchable layers — frequency (linear & log), pace, heart rate and gradient (absolute & directional). No API key needed, just your Strava zip export.",
     role: "Contributor",
     tags: ["Python", "Jupyter Notebook", "Data Visualisation", "Strava"],
   },
@@ -72,8 +72,8 @@ export default function OpenSource() {
           </h2>
           <p className="mt-4 text-ink-300">
             I believe in giving back to the tools and communities that make
-            software better. Here are the open-source projects I&apos;m
-            actively contributing to.
+            software better. Here are the open-source projects I&apos;m actively
+            contributing to.
           </p>
         </div>
 

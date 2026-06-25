@@ -7,7 +7,7 @@ const traits = [
   {
     icon: Code2,
     title: "Engineer at heart",
-    body: "I care about clean architecture, readable code, and the small details that make software feel solid.",
+    body: "I care about clean architecture, readable code and the small details that make software feel solid.",
   },
   {
     icon: Compass,
@@ -40,8 +40,10 @@ export default function About() {
             <p className="mt-6 text-ink-300">
               I&apos;m a software engineer based in Sri Lanka, currently
               shipping enterprise-grade software as an{" "}
-              <span className="text-white">Associate Software Developer at IFS</span>.
-              I hold a BEng in Software Engineering from the Informatics
+              <span className="text-white">
+                Associate Software Developer at IFS
+              </span>
+              . I hold a BEng in Software Engineering from the Informatics
               Institute of Technology (affiliated with the University of
               Westminster, UK).
             </p>

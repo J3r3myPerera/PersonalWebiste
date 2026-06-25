@@ -1,11 +1,21 @@
 "use client";
 
-import { ArrowRight, Download, Github, Linkedin, MapPin, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Download,
+  Github,
+  Linkedin,
+  MapPin,
+  Sparkles,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pb-16 pt-20 sm:pb-20 sm:pt-32 lg:pt-40">
+    <section
+      id="top"
+      className="relative overflow-hidden pb-16 pt-20 sm:pb-20 sm:pt-32 lg:pt-40"
+    >
       <div className="absolute inset-0 -z-10 bg-aurora" />
       <div className="absolute inset-0 -z-10 bg-grid" />
 
@@ -40,7 +50,7 @@ export default function Hero() {
             Associate Software Developer at{" "}
             <span className="font-medium text-white">IFS</span>. I enjoy turning
             ambiguous problems into clean, reliable products — across web,
-            backend, and a bit of data along the way.
+            backend and a bit of data along the way.
           </p>
 
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center">
