@@ -22,7 +22,7 @@ export default function ThemeToggle() {
     <button
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="group grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/[0.03] text-ink-300 transition-all hover:border-accent/40 hover:bg-accent/10 hover:text-accent-soft light-mode:border-black/10 light-mode:bg-black/[0.03] light-mode:text-ink-500"
+      className="theme-toggle group grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/[0.03] text-ink-300 transition-all hover:border-accent/40 hover:bg-accent/10 hover:text-accent-soft"
     >
       {isDark ? (
         <Sun size={16} className="transition-transform group-hover:rotate-12" />
