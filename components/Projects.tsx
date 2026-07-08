@@ -46,6 +46,24 @@ const projects: Project[] = [
     href: "https://github.com/J3r3myPerera/tea-factory-board-leaf-project",
   },
   {
+    title: "AI Running Tool — Scalable SaaS",
+    period: "In Progress · 2026",
+    description:
+      "A scalable SaaS platform built to help runners train smarter using AI-driven insights. Architected from the ground up for multi-tenant scalability, with a focus on clean, extensible infrastructure that can grow from a single user to thousands.",
+    tags: ["SaaS", "Scalable Architecture", "AI", "In Progress"],
+    highlight: true,
+    href: "https://github.com/J3r3myPerera/AIRunningTool",
+  },
+  {
+    title: "Resume Builder — Scalable SaaS",
+    period: "In Progress · 2026",
+    description:
+      "A scalable SaaS product for building and managing professional resumes, designed with a multi-tenant architecture and a modern, extensible stack to support growth from individual users to a full customer base.",
+    tags: ["SaaS", "Scalable Architecture", "In Progress"],
+    highlight: true,
+    href: "https://github.com/J3r3myPerera/ResumeBuilder",
+  },
+  {
     title: "The Predictor — AI Stock Forecasting App",
     period: "Aug 2022 – Apr 2023",
     description:
