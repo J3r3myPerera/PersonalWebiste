@@ -12,7 +12,7 @@ const traits = [
   {
     icon: Compass,
     title: "Curious by default",
-    body: "From web apps to neural networks in R — I love wandering across the stack and learning along the way.",
+    body: "From web apps to neural networks in R, I love wandering across the stack and learning along the way.",
   },
   {
     icon: Users,
@@ -33,7 +33,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5"
           >
-            <span className="eyebrow">01 — About</span>
+            <span className="eyebrow">01: About</span>
             <h2 className="heading-lg">
               A developer with a builder&apos;s mindset.
             </h2>
@@ -48,9 +48,9 @@ export default function About() {
               Westminster, UK).
             </p>
             <p className="mt-4 text-ink-300">
-              Outside of code, I&apos;ve spent years debating competitively —
+              Outside of code, I&apos;ve spent years debating competitively,
               including a quarter-final at the Cambridge University British
-              Parliamentary Championship — and leading community projects with
+              Parliamentary Championship, and leading community projects with
               Rotaract. I bring that same energy into every team I&apos;m part
               of.
             </p>

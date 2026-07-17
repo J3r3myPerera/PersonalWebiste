@@ -17,7 +17,7 @@ const projects: Project[] = [
     title: "Federated Learning for Personal Finance Prediction",
     period: "Final Year Project · 2024 – 2025",
     description:
-      "Designed and implemented a complete Federated Learning system to predict disposable income from real-world finance data. Built custom FedAvg, FedProx and an original SmartFedProx strategy — featuring adaptive μ, divergence-aware client selection and server-side μ tuning. Delivered both a bespoke simulation framework and a parallel Flower (flwr) implementation, with a FastAPI dashboard, WandB experiment tracking, CI/CD and AWS EC2 deployment.",
+      "Designed and implemented a complete Federated Learning system to predict disposable income from real-world finance data. Built custom FedAvg, FedProx and an original SmartFedProx strategy, featuring adaptive μ, divergence-aware client selection and server-side μ tuning. Delivered both a bespoke simulation framework and a parallel Flower (flwr) implementation, with a FastAPI dashboard, WandB experiment tracking, CI/CD and AWS EC2 deployment.",
     tags: [
       "Final Year Project",
       "Python",
@@ -30,10 +30,10 @@ const projects: Project[] = [
     href: "https://github.com/J3r3myPerera/FLRegressionFwr",
   },
   {
-    title: "Tea Factory Ops — Sri Lanka Green-Leaf Supply Chain Platform",
+    title: "Tea Factory Ops: Sri Lanka Green-Leaf Supply Chain Platform",
     period: "Collaborative · 2025 – Present",
     description:
-      "Two-person SaaS project digitising Sri Lanka's green-leaf tea supply chain — replacing entirely paper-based factory operations with a web ERP and companion mobile app. Covers daily leaf intake, supplier management, automatic monthly payment calculation, production tracking and quality assessment. Built as a full-stack monorepo; Phase 2 targets an Uber-style two-sided marketplace for suppliers and factories.",
+      "Two-person SaaS project digitising Sri Lanka's green-leaf tea supply chain, replacing entirely paper-based factory operations with a web ERP and companion mobile app. Covers daily leaf intake, supplier management, automatic monthly payment calculation, production tracking and quality assessment. Built as a full-stack monorepo; Phase 2 targets an Uber-style two-sided marketplace for suppliers and factories.",
     tags: [
       "Next.js 15",
       "TypeScript",
@@ -46,7 +46,7 @@ const projects: Project[] = [
     href: "https://github.com/J3r3myPerera/tea-factory-board-leaf-project",
   },
   {
-    title: "AI Running Tool — Scalable SaaS",
+    title: "AI Running Tool: Scalable SaaS",
     period: "In Progress · 2026",
     description:
       "A scalable SaaS platform built to help runners train smarter using AI-driven insights. Architected from the ground up for multi-tenant scalability, with a focus on clean, extensible infrastructure that can grow from a single user to thousands.",
@@ -55,7 +55,7 @@ const projects: Project[] = [
     href: "https://github.com/J3r3myPerera/AIRunningTool",
   },
   {
-    title: "Resume Builder — Scalable SaaS",
+    title: "Resume Builder: Scalable SaaS",
     period: "In Progress · 2026",
     description:
       "A scalable SaaS product for building and managing professional resumes, designed with a multi-tenant architecture and a modern, extensible stack to support growth from individual users to a full customer base.",
@@ -64,7 +64,7 @@ const projects: Project[] = [
     href: "https://github.com/J3r3myPerera/ResumeBuilder",
   },
   {
-    title: "The Predictor — AI Stock Forecasting App",
+    title: "The Predictor: AI Stock Forecasting App",
     period: "Aug 2022 – Apr 2023",
     description:
       "AI-powered web application for stock price prediction. Led the team and contributed to the data science component. Selected to participate in Microsoft Imagine Cup 2023.",
@@ -89,7 +89,7 @@ const projects: Project[] = [
     title: "HTTP & Java Server",
     period: "Feb 2023",
     description:
-      "Built a small HTTP server and a Java client that talks to it through a local server port — a hands-on dive into networking fundamentals.",
+      "Built a small HTTP server and a Java client that talks to it through a local server port, a hands-on dive into networking fundamentals.",
     tags: ["Java", "HTTP", "Networking"],
   },
   {
@@ -114,10 +114,10 @@ const projects: Project[] = [
     tags: ["Team Project", "Frontend", "JS"],
   },
   {
-    title: "The Score — Cricket Scoring App",
+    title: "The Score: Cricket Scoring App",
     period: "SLIIT CodeFest 2019",
     description:
-      "Cricket scoring application built in Python as part of the college team — advanced to the competition quarter-finals.",
+      "Cricket scoring application built in Python as part of the college team, advancing to the competition quarter-finals.",
     tags: ["Python", "Competition"],
   },
 ];
@@ -128,11 +128,11 @@ export default function Projects() {
       <div className="container-page">
         <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <span className="eyebrow">04 — Projects</span>
+            <span className="eyebrow">04: Projects</span>
             <h2 className="heading-lg">Things I&apos;ve built and shipped.</h2>
             <p className="mt-4 text-ink-300">
               A selection of projects from university, collaborative work,
-              competitions and side experiments — spanning web, mobile and
+              competitions and side experiments, spanning web, mobile and
               machine learning.
             </p>
           </div>

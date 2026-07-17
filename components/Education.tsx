@@ -10,11 +10,11 @@ const education = [
     degree: "BEng (Hons) Software Engineering",
     period: "2021 – Present",
     notes: [
-      "Software Development I — 76",
-      "Software Development II — 60",
-      "Mathematics for Computing — 76",
-      "Computer Systems Fundamentals — 82",
-      "Web Design & Development — 80",
+      "Software Development I: 76",
+      "Software Development II: 60",
+      "Mathematics for Computing: 76",
+      "Computer Systems Fundamentals: 82",
+      "Web Design & Development: 80",
     ],
   },
   {
@@ -22,7 +22,7 @@ const education = [
     affiliation: "GCE Advanced Level",
     degree: "Information Technology · Combined Mathematics · Physics",
     period: "2017 – 2020",
-    notes: ["Z-score 0.9190", "IT — A", "Combined Maths — S", "Physics — C"],
+    notes: ["Z-score 0.9190", "IT: A", "Combined Maths: S", "Physics: C"],
   },
 ];
 
@@ -45,7 +45,7 @@ const extras = [
   {
     title: "ICT Club",
     org: "St. Peter's College",
-    body: "Project Co-ordinator (2019 – 2020) — organised the College ICT day and supported students entering IT competitions.",
+    body: "Project Co-ordinator (2019 – 2020): organised the College ICT day and supported students entering IT competitions.",
   },
 ];
 
@@ -54,7 +54,7 @@ export default function Education() {
     <section id="education" className="section">
       <div className="container-page">
         <div className="mb-12 max-w-2xl">
-          <span className="eyebrow">05 — Education & Beyond</span>
+          <span className="eyebrow">05: Education & Beyond</span>
           <h2 className="heading-lg">
             Foundations in engineering, sharpened by community.
           </h2>

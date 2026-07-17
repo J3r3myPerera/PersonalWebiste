@@ -69,7 +69,7 @@ export default function Skills() {
     <section id="skills" className="section">
       <div className="container-page">
         <div className="mb-12 max-w-2xl">
-          <span className="eyebrow">03 — Skills</span>
+          <span className="eyebrow">03: Skills</span>
           <h2 className="heading-lg">The toolkit I bring to a problem.</h2>
           <p className="mt-4 text-ink-300">
             A mix of languages, frameworks and habits I&apos;ve picked up

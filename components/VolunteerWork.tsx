@@ -19,7 +19,7 @@ const volunteerProjects: VolunteerProject[] = [
     org: "St. Mary's Church",
     period: "Ongoing",
     description:
-      "Designed, built and continue to actively develop the official website for St. Mary's Church. A volunteer effort to give the parish a modern, accessible digital presence — covering services, events and community information.",
+      "Designed, built and continue to actively develop the official website for St. Mary's Church. A volunteer effort to give the parish a modern, accessible digital presence, covering services, events and community information.",
     tags: ["Web Development", "HTML", "CSS", "JavaScript"],
     href: "https://stmarysmaharagama.org/",
     status: "live",
@@ -43,12 +43,12 @@ export default function VolunteerWork() {
     <section id="volunteer" className="section">
       <div className="container-page">
         <div className="mb-12 max-w-2xl">
-          <span className="eyebrow">06 — Volunteer Work</span>
+          <span className="eyebrow">06: Volunteer Work</span>
           <h2 className="heading-lg">
             Building things for the community, not the résumé.
           </h2>
           <p className="mt-4 text-ink-300">
-            Outside of work and university I give my time to projects that
+            Outside of work and university, I give my time to projects that
             matter to the people around me. Giving back through code is one of
             the most rewarding things I do.
           </p>

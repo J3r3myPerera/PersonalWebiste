@@ -20,7 +20,7 @@ const roles: Role[] = [
     location: "Colombo, Sri Lanka",
     bullets: [
       "Contributing to enterprise software products used by customers around the world.",
-      "Working across the stack — building features, debugging real-world issues and collaborating across distributed teams.",
+      "Working across the stack: building features, debugging real-world issues and collaborating across distributed teams.",
       "Continuously sharpening engineering fundamentals: code quality, testing and design.",
     ],
     tags: ["Enterprise", "Full-stack", "Agile"],
@@ -31,7 +31,7 @@ const roles: Role[] = [
     period: "Feb 2021 – Sep 2021",
     location: "Head Office, Colombo 11",
     bullets: [
-      "Engaged with customers across phone, email in-person channels to provide accurate information.",
+      "Engaged with customers across phone, email and in-person channels to provide accurate information.",
       "Partnered with internal teams to analyse and resolve customer issues efficiently.",
       "Worked on bank-issued endorsements end-to-end.",
     ],
@@ -44,7 +44,7 @@ export default function Experience() {
     <section id="experience" className="section">
       <div className="container-page">
         <div className="mb-12 max-w-2xl">
-          <span className="eyebrow">02 — Experience</span>
+          <span className="eyebrow">02: Experience</span>
           <h2 className="heading-lg">Where I&apos;ve been building things.</h2>
         </div>
 
