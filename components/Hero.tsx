@@ -49,8 +49,8 @@ export default function Hero() {
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-300 sm:text-lg">
             Associate Software Developer at{" "}
             <span className="font-medium text-white">IFS</span>. I enjoy turning
-            ambiguous problems into clean, reliable products — across web,
-            backend and a bit of data along the way.
+            ambiguous problems into clean, reliable products across web,
+            backend, and a bit of data along the way.
           </p>
 
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center">
