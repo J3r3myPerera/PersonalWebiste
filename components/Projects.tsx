@@ -160,10 +160,12 @@ export default function Projects() {
                   <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent/10 text-accent-soft ring-1 ring-accent/20">
                     <Folder size={18} />
                   </div>
-                  <ArrowUpRight
-                    size={18}
-                    className="text-ink-400 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
-                  />
+                  {p.href && (
+                    <ArrowUpRight
+                      size={18}
+                      className="text-ink-400 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
+                    />
+                  )}
                 </div>
 
                 <div className="mt-5 flex-1">

@@ -29,6 +29,15 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   const scrolledClass = scrolled
     ? isDark
       ? "border-b border-white/5 bg-ink-950/75 backdrop-blur-xl shadow-none"
@@ -74,6 +83,8 @@ export default function Navigation() {
           <ThemeToggle />
           <button
             aria-label="Toggle menu"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
             className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/[0.03] text-ink-200 mobile-menu-btn"
           >
@@ -85,7 +96,10 @@ export default function Navigation() {
       {open && (
         <div className="md:hidden">
           <div className="container-page pb-4">
-            <ul className="mobile-menu grid gap-1 rounded-2xl border border-white/10 bg-ink-900/80 p-2 backdrop-blur-xl">
+            <ul
+              id="mobile-menu"
+              className="mobile-menu grid gap-1 rounded-2xl border border-white/10 bg-ink-900/80 p-2 backdrop-blur-xl"
+            >
               {links.map((l) => (
                 <li key={l.href}>
                   <a
