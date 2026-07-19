@@ -16,7 +16,7 @@ const roles: Role[] = [
   {
     company: "IFS",
     title: "Associate Software Developer",
-    period: "Present",
+    period: "Jul 2024 – Present",
     location: "Colombo, Sri Lanka",
     bullets: [
       "Contributing to enterprise software products used by customers around the world.",
