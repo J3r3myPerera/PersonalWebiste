@@ -1,108 +1,111 @@
 "use client";
 
-import {
-  ArrowRight,
-  Download,
-  Github,
-  Linkedin,
-  MapPin,
-  Sparkles,
-} from "lucide-react";
 import { motion } from "framer-motion";
+
+const heroFacts = [
+  { k: "Role", v: "Assoc. Software Eng · IFS" },
+  { k: "Based in", v: "Colombo, Sri Lanka" },
+  { k: "Focus", v: "Web · Backend · ML" },
+  { k: "Status", v: "Open to collaboration" },
+];
 
 export default function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pb-16 pt-20 sm:pb-20 sm:pt-32 lg:pt-40"
+      className="container-page pb-[clamp(48px,7vw,88px)] pt-[clamp(56px,11vw,132px)]"
     >
-      <div className="absolute inset-0 -z-10 bg-aurora" />
-      <div className="absolute inset-0 -z-10 bg-grid" />
-
-      <div className="container-page">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="max-w-3xl"
-        >
-          <span className="eyebrow">
-            <Sparkles size={12} className="text-accent-soft" />
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="mb-[clamp(28px,5vw,48px)] flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-[0.14em] text-ink-faint">
+          <span className="inline-flex items-center gap-2 text-accent">
+            <span className="h-[7px] w-[7px] rounded-full bg-accent" />
             Available for collaboration
           </span>
+          <span className="text-line-strong">/</span>
+          <span>Colombo, Sri Lanka</span>
+        </div>
 
-          <h1 className="heading-xl">
-            <span className="gradient-text">Hi, I&apos;m Jeremy.</span>
-            <br />
-            <span className="text-ink-300">
-              I build software that feels{" "}
-              <span className="relative inline-block">
-                <span className="thoughtful-word relative z-10 text-white">
-                  thoughtful
-                </span>
-                <span className="thoughtful-glow absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/30 blur-md" />
-              </span>
-              .
-            </span>
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-300 sm:text-lg">
-            Associate Software Developer at{" "}
-            <span className="font-medium text-white">IFS</span>. I enjoy turning
-            ambiguous problems into clean, reliable products across web,
-            backend, and a bit of data along the way.
-          </p>
-
-          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-            <a href="#projects" className="btn-primary">
-              View my work <ArrowRight size={16} />
-            </a>
-            <a href="#contact" className="btn-ghost">
-              Get in touch
-            </a>
-            <a
-              href="/cv.pdf"
-              download="Jeremy_Perera_CV.pdf"
-              className="btn-ghost"
-            >
-              <Download size={16} />
-              Download CV
-            </a>
-          </div>
-
-          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-ink-300">
-            <span className="inline-flex items-center gap-2">
-              <MapPin size={14} className="text-accent-soft" />
-              Colombo, Sri Lanka
-            </span>
-            <a
-              href="https://github.com/J3r3myPerera"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 transition-colors hover:text-white"
-            >
-              <Github size={14} /> GitHub
-            </a>
-            <a
-              href="https://linkedin.com/in/dinuka-jeremy"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 transition-colors hover:text-white"
-            >
-              <Linkedin size={14} /> LinkedIn
-            </a>
-          </div>
-        </motion.div>
+        <h1 className="font-serif text-[clamp(3.1rem,10vw,7rem)] font-medium leading-[0.92] tracking-[-0.025em]">
+          Jeremy
+          <br />
+          Perera
+        </h1>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="pointer-events-none mt-20 hidden md:block"
-        >
-          <div className="relative mx-auto h-px w-full max-w-5xl bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-        </motion.div>
-      </div>
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="my-[clamp(28px,4vw,40px)] h-0.5 w-[min(340px,60%)] origin-left bg-accent"
+        />
+
+        <div className="flex flex-wrap items-start gap-[clamp(32px,6vw,72px)]">
+          <div className="min-w-[min(100%,300px)] flex-1 basis-[440px]">
+            <p className="max-w-[24ch] font-serif text-[clamp(1.5rem,2.7vw,2.15rem)] font-normal leading-[1.32] tracking-[-0.01em]">
+              Associate Software Engineer at{" "}
+              <span className="italic text-accent">IFS</span>. I turn ambiguous
+              problems into clean, reliable software.
+            </p>
+            <p className="mt-6 max-w-[52ch] text-base leading-[1.75] text-ink-muted">
+              Across web, backend, and applied machine learning, with a research
+              streak in federated learning and a habit of shipping.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="#projects" className="btn-primary">
+                View selected work <span className="font-mono">→</span>
+              </a>
+              <a href="#contact" className="btn-ghost">
+                Get in touch
+              </a>
+              <a
+                href="/cv.pdf"
+                download="Jeremy_Perera_CV.pdf"
+                className="btn-quiet"
+              >
+                Download CV <span className="font-mono">↓</span>
+              </a>
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4 font-mono text-[11.5px] uppercase tracking-[0.1em] text-ink-faint">
+              <a
+                href="https://github.com/J3r3myPerera"
+                target="_blank"
+                rel="noreferrer"
+                className="text-ink-faint transition-colors hover:text-ink"
+              >
+                GitHub ↗
+              </a>
+              <span className="text-line-strong">/</span>
+              <a
+                href="https://linkedin.com/in/dinuka-jeremy"
+                target="_blank"
+                rel="noreferrer"
+                className="text-ink-faint transition-colors hover:text-ink"
+              >
+                LinkedIn ↗
+              </a>
+            </div>
+          </div>
+
+          <dl className="min-w-[240px] flex-initial basis-[300px] border-t border-line">
+            {heroFacts.map((f) => (
+              <div
+                key={f.k}
+                className="flex justify-between gap-4 border-b border-line py-3.5"
+              >
+                <dt className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-faint">
+                  {f.k}
+                </dt>
+                <dd className="m-0 text-right text-[13.5px]">{f.v}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </motion.div>
     </section>
   );
 }

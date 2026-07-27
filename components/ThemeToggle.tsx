@@ -11,27 +11,45 @@ export default function ThemeToggle() {
   useEffect(() => setMounted(true), []);
 
   if (!mounted) {
-    return (
-      <span className="h-9 w-9 rounded-full border border-white/10 bg-white/[0.03]" />
-    );
+    return <span className="block h-[30px] w-[62px] border border-line" />;
   }
 
   const isDark = theme === "dark";
 
   return (
-    <button
-      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="theme-toggle group grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/[0.03] text-ink-300 transition-all hover:border-accent/40 hover:bg-accent/10 hover:text-accent-soft"
+    <div
+      role="group"
+      aria-label="Colour theme"
+      className="relative grid h-[30px] w-[62px] grid-cols-2 border border-line transition-colors hover:border-line-strong"
     >
-      {isDark ? (
-        <Sun size={16} className="transition-transform group-hover:rotate-12" />
-      ) : (
-        <Moon
-          size={16}
-          className="transition-transform group-hover:-rotate-12"
-        />
-      )}
-    </button>
+      {/* sliding knob */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 left-0 w-1/2 bg-accent-soft transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
+        style={{ transform: isDark ? "translateX(0)" : "translateX(100%)" }}
+      />
+      <button
+        type="button"
+        aria-label="Switch to dark mode"
+        aria-pressed={isDark}
+        onClick={() => setTheme("dark")}
+        className={`relative grid place-items-center transition-colors ${
+          isDark ? "text-accent" : "text-ink-faint hover:text-ink"
+        }`}
+      >
+        <Moon size={13} />
+      </button>
+      <button
+        type="button"
+        aria-label="Switch to light mode"
+        aria-pressed={!isDark}
+        onClick={() => setTheme("light")}
+        className={`relative grid place-items-center transition-colors ${
+          !isDark ? "text-accent" : "text-ink-faint hover:text-ink"
+        }`}
+      >
+        <Sun size={13} />
+      </button>
+    </div>
   );
 }
