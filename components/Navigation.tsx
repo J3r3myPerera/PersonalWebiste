@@ -54,9 +54,15 @@ export default function Navigation() {
 
           <a
             href="#contact"
-            className="hidden h-[30px] items-center bg-accent px-3 font-mono text-[11px] uppercase tracking-[0.1em] text-white transition-[filter] hover:brightness-110 sm:inline-flex"
+            className="group hidden h-[30px] items-center gap-2 whitespace-nowrap rounded-[2px] bg-accent px-3.5 font-mono text-[11px] uppercase leading-none tracking-[0.1em] text-white transition-[filter] hover:brightness-110 sm:inline-flex"
           >
             Let&apos;s talk
+            <span
+              aria-hidden
+              className="transition-transform duration-300 group-hover:translate-x-0.5"
+            >
+              →
+            </span>
           </a>
 
           <button
