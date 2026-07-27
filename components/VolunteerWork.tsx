@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Heart } from "lucide-react";
 
 type VolunteerProject = {
   title: string;
@@ -26,12 +25,6 @@ const volunteerProjects: VolunteerProject[] = [
   },
 ];
 
-const statusStyles: Record<VolunteerProject["status"], string> = {
-  live: "bg-emerald-500/10 text-emerald-400 ring-1 ring-emerald-500/20",
-  ongoing: "bg-accent/10 text-accent-soft ring-1 ring-accent/20",
-  completed: "bg-ink-400/10 text-ink-300 ring-1 ring-ink-400/20",
-};
-
 const statusLabel: Record<VolunteerProject["status"], string> = {
   live: "Live",
   ongoing: "Active",
@@ -41,80 +34,60 @@ const statusLabel: Record<VolunteerProject["status"], string> = {
 export default function VolunteerWork() {
   return (
     <section id="volunteer" className="section">
-      <div className="container-page">
-        <div className="mb-12 max-w-2xl">
-          <span className="eyebrow">06: Volunteer Work</span>
-          <h2 className="heading-lg">
-            Building things for the community, not the résumé.
+      <div className="section-inner">
+        <div className="section-rail">
+          <span className="section-num">06</span>
+          <span className="section-label">Volunteer</span>
+        </div>
+
+        <div className="section-body">
+          <h2 className="heading-section mb-3 max-w-[18ch]">
+            Building for the community, not the r&eacute;sum&eacute;.
           </h2>
-          <p className="mt-4 text-ink-300">
+          <p className="lede mb-10 max-w-[60ch]">
             Outside of work and university, I give my time to projects that
             matter to the people around me. Giving back through code is one of
             the most rewarding things I do.
           </p>
-        </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {volunteerProjects.map((p, i) => (
-            <motion.a
-              key={p.title}
-              href={p.href}
-              target="_blank"
-              rel="noreferrer"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="card group flex flex-col"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-accent/10 text-accent-soft ring-1 ring-accent/20">
-                    <Heart size={18} />
-                  </div>
-                  <span
-                    className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${statusStyles[p.status]}`}
-                  >
+          <div className="grid gap-4">
+            {volunteerProjects.map((p, i) => (
+              <motion.a
+                key={p.title}
+                href={p.href}
+                target="_blank"
+                rel="noreferrer"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: i * 0.06 }}
+                className="block rounded border border-line-strong p-[clamp(24px,3vw,40px)] text-ink transition-colors hover:border-accent"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-3.5">
+                  <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.1em] text-accent">
+                    <span className="h-[7px] w-[7px] rounded-full bg-[#3fbf7a]" />
                     {statusLabel[p.status]}
                   </span>
-                </div>
-                <ArrowUpRight
-                  size={18}
-                  className="text-ink-400 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
-                />
-              </div>
-
-              <div className="mt-5 flex-1">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-                  <h3 className="font-display text-base font-semibold text-white sm:text-lg">
-                    {p.title}
-                  </h3>
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-ink-400">
-                    {p.period}
+                  <span className="meta">
+                    {p.href.replace(/^https?:\/\//, "").replace(/\/$/, "")}
                   </span>
                 </div>
-                <p className="mt-1 text-sm font-medium text-accent-soft">
-                  {p.org}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-ink-300">
+
+                <h3 className="mt-4 font-serif text-[1.6rem] font-medium tracking-[-0.01em]">
+                  {p.title}
+                </h3>
+                <div className="mt-1.5 font-mono text-xs text-ink-muted">
+                  {p.org} · {p.period}
+                </div>
+                <p className="mt-4 max-w-[70ch] text-[0.98rem] leading-[1.75] text-ink-muted">
                   {p.description}
                 </p>
-              </div>
-
-              <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
-                <div className="flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span key={t} className="chip">
-                      {t}
-                    </span>
-                  ))}
+                <div className="mt-5 font-mono text-xs tracking-[0.06em] text-ink-faint">
+                  {p.tags.join("   ·   ")}
                 </div>
-                <span className="font-mono text-[11px] text-ink-400">
-                  {p.href.replace(/^https?:\/\//, "").replace(/\/$/, "")}
-                </span>
-              </div>
-            </motion.a>
-          ))}
+              </motion.a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

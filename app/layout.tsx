@@ -1,30 +1,36 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Newsreader, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import ThemeProvider from "@/components/ThemeProvider";
 import "./globals.css";
 
-const inter = Inter({
+const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-plex-sans",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const newsreader = Newsreader({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
-  variable: "--font-space-grotesk",
+  variable: "--font-newsreader",
+  // Next 14 has no fallback metrics for Newsreader; opt out of the override.
+  adjustFontFallback: false,
+  fallback: ["Georgia", "serif"],
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
-  variable: "--font-jetbrains-mono",
+  variable: "--font-plex-mono",
 });
 
 export const metadata: Metadata = {
-  title: "Jeremy Perera: Associate Software Developer",
+  title: "Jeremy Perera: Associate Software Engineer",
   description:
-    "Personal site of Jeremy Perera, Associate Software Developer at IFS. Building thoughtful software, exploring data, and shipping ideas.",
+    "Personal site of Jeremy Perera, Associate Software Engineer at IFS. Building thoughtful software, exploring data, and shipping ideas.",
   keywords: [
     "Jeremy Perera",
     "Dinuka Perera",
@@ -35,9 +41,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Jeremy Perera" }],
   openGraph: {
-    title: "Jeremy Perera: Associate Software Developer",
+    title: "Jeremy Perera: Associate Software Engineer",
     description:
-      "Personal site of Jeremy Perera, Associate Software Developer at IFS.",
+      "Personal site of Jeremy Perera, Associate Software Engineer at IFS.",
     type: "website",
   },
 };
@@ -51,7 +57,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      className={`${plexSans.variable} ${newsreader.variable} ${plexMono.variable}`}
     >
       <body className="font-sans">
         <ThemeProvider>{children}</ThemeProvider>

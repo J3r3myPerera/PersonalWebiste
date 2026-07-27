@@ -67,38 +67,40 @@ const groups = [
 export default function Skills() {
   return (
     <section id="skills" className="section">
-      <div className="container-page">
-        <div className="mb-12 max-w-2xl">
-          <span className="eyebrow">03: Skills</span>
-          <h2 className="heading-lg">The toolkit I bring to a problem.</h2>
-          <p className="mt-4 text-ink-300">
-            A mix of languages, frameworks and habits I&apos;ve picked up
-            through coursework, projects and shipping real software.
-          </p>
+      <div className="section-inner">
+        <div className="section-rail">
+          <span className="section-num">03</span>
+          <span className="section-label">Skills</span>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {groups.map((g, i) => (
-            <motion.div
-              key={g.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="card"
-            >
-              <h3 className="font-display text-base font-semibold text-white">
-                {g.title}
-              </h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {g.items.map((it) => (
-                  <span key={it} className="chip">
-                    {it}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+        <div className="section-body">
+          <h2 className="heading-section mb-3 max-w-[18ch]">
+            The toolkit I bring to a problem.
+          </h2>
+          <p className="lede mb-11 max-w-[60ch]">
+            A mix of languages, frameworks and habits picked up through
+            coursework, projects and shipping real software.
+          </p>
+
+          <div className="rule-list">
+            {groups.map((g, i) => (
+              <motion.div
+                key={g.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: i * 0.06 }}
+                className="rule-row flex flex-wrap gap-[clamp(16px,4vw,48px)] py-6"
+              >
+                <h3 className="min-w-[140px] flex-initial basis-[170px] font-serif text-[1.25rem] font-medium tracking-[-0.01em]">
+                  {g.title}
+                </h3>
+                <div className="flex-1 basis-[360px] pt-0.5 font-mono text-[12.5px] leading-[2] tracking-[0.05em] text-ink-muted">
+                  {g.items.join("   ·   ")}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

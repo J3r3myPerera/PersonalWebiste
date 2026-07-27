@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Folder } from "lucide-react";
 
 type Project = {
   title: string;
@@ -122,74 +121,95 @@ const projects: Project[] = [
   },
 ];
 
+const [leadProject, ...restProjects] = projects;
+
 export default function Projects() {
   return (
     <section id="projects" className="section">
-      <div className="container-page">
-        <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
-          <div className="max-w-2xl">
-            <span className="eyebrow">04: Projects</span>
-            <h2 className="heading-lg">Things I&apos;ve built and shipped.</h2>
-            <p className="mt-4 text-ink-300">
-              A selection of projects from university, collaborative work,
-              competitions and side experiments, spanning web, mobile and
-              machine learning.
+      <div className="container-page py-[clamp(60px,9vw,128px)]">
+        <div className="mb-[clamp(40px,6vw,64px)] flex flex-wrap items-start gap-[clamp(28px,5vw,80px)]">
+          <div className="min-w-[150px] shrink-0 grow-0 basis-[180px]">
+            <span className="section-num">04</span>
+            <span className="section-label">Selected Work</span>
+          </div>
+          <div className="min-w-[min(100%,320px)] flex-1 basis-[520px]">
+            <h2 className="heading-section mb-3 max-w-[16ch]">
+              Things I&rsquo;ve built and shipped.
+            </h2>
+            <p className="lede max-w-[60ch]">
+              Projects from university, collaborative work, competitions and
+              side experiments, spanning web, mobile and machine learning.
             </p>
           </div>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p, i) => {
-            const Tag = p.href ? motion.a : motion.div;
+        {/* Lead project */}
+        <motion.a
+          href={leadProject.href}
+          target="_blank"
+          rel="noreferrer"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className="block rounded border border-line-strong bg-surface p-[clamp(28px,4vw,52px)] text-ink transition-colors hover:border-accent"
+        >
+          <div className="flex flex-wrap items-baseline justify-between gap-4">
+            <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
+              Featured · Final Year Project
+            </span>
+            <span className="meta">{leadProject.period}</span>
+          </div>
+          <h3 className="mt-4 max-w-[22ch] font-serif text-[clamp(1.6rem,3vw,2.5rem)] font-medium leading-[1.14] tracking-[-0.015em]">
+            {leadProject.title}
+          </h3>
+          <p className="mt-5 max-w-[78ch] text-[1.02rem] leading-[1.78] text-ink-muted">
+            {leadProject.description}
+          </p>
+          <div className="mt-6 font-mono text-xs tracking-[0.06em] text-ink-faint">
+            {leadProject.tags.join("   ·   ")}
+          </div>
+        </motion.a>
+
+        {/* Project index */}
+        <div className="mt-9 rule-list">
+          {restProjects.map((p, i) => {
+            const Row = p.href ? motion.a : motion.div;
             const linkProps = p.href
               ? { href: p.href, target: "_blank", rel: "noreferrer" }
               : {};
             return (
-              <Tag
+              <Row
                 key={p.title}
                 {...(linkProps as object)}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.45, delay: (i % 6) * 0.05 }}
-                className={`card flex flex-col ${p.href ? "group" : ""} ${
-                  p.highlight ? "md:col-span-2 lg:col-span-2 lg:row-span-1" : ""
-                }`}
+                transition={{ duration: 0.45, delay: (i % 6) * 0.04 }}
+                className="rule-row flex flex-wrap items-baseline gap-[clamp(16px,4vw,48px)] px-1 py-7 text-ink transition-colors hover:bg-surface"
               >
-                <div className="flex items-start justify-between">
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent/10 text-accent-soft ring-1 ring-accent/20">
-                    <Folder size={18} />
-                  </div>
-                  {p.href && (
-                    <ArrowUpRight
-                      size={18}
-                      className="text-ink-400 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
-                    />
-                  )}
-                </div>
-
-                <div className="mt-5 flex-1">
-                  <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-                    <h3 className="font-display text-base font-semibold text-white sm:text-lg">
+                <span className="shrink-0 grow-0 basis-[118px] font-mono text-[11.5px] tracking-[0.03em] text-ink-faint">
+                  {p.period}
+                </span>
+                <div className="min-w-[min(100%,280px)] flex-1 basis-[420px]">
+                  <div className="flex items-baseline justify-between gap-2.5">
+                    <h3 className="font-serif text-[1.32rem] font-medium tracking-[-0.01em]">
                       {p.title}
                     </h3>
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-ink-400">
-                      {p.period}
-                    </span>
+                    {p.href && (
+                      <span className="font-mono text-[15px] text-ink-faint">
+                        ↗
+                      </span>
+                    )}
                   </div>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-300">
+                  <p className="mt-2 max-w-[74ch] text-[0.95rem] leading-[1.66] text-ink-muted">
                     {p.description}
                   </p>
+                  <div className="mt-3 font-mono text-[11px] tracking-[0.06em] text-ink-faint">
+                    {p.tags.join("   ·   ")}
+                  </div>
                 </div>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span key={t} className="chip">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </Tag>
+              </Row>
             );
           })}
         </div>

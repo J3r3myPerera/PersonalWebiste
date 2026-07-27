@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, GitFork } from "lucide-react";
 
 type Contribution = {
   title: string;
@@ -64,91 +63,77 @@ const contributions: Contribution[] = [
 export default function OpenSource() {
   return (
     <section id="opensource" className="section">
-      <div className="container-page">
-        <div className="mb-12 max-w-2xl">
-          <span className="eyebrow">07: Open Source</span>
-          <h2 className="heading-lg">
-            Contributing to projects I actually use.
-          </h2>
-          <p className="mt-4 text-ink-300">
-            I believe in giving back to the tools and communities that make
-            software better. Here are the open-source projects I&apos;m actively
-            contributing to.
-          </p>
+      <div className="section-inner">
+        <div className="section-rail">
+          <span className="section-num">07</span>
+          <span className="section-label">Open Source</span>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          {contributions.map((c, i) => (
-            <motion.div
-              key={c.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="card flex flex-col"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-accent/10 text-accent-soft ring-1 ring-accent/20">
-                    <GitFork size={18} />
-                  </div>
-                  <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent-soft ring-1 ring-accent/20">
+        <div className="section-body">
+          <h2 className="heading-section mb-3 max-w-[18ch]">
+            Contributing to projects I actually use.
+          </h2>
+          <p className="lede mb-10 max-w-[60ch]">
+            Giving back to the tools and communities that make software better.
+            Here&rsquo;s where I&rsquo;m actively contributing.
+          </p>
+
+          <div className="rule-list">
+            {contributions.map((c, i) => (
+              <motion.div
+                key={c.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: i * 0.06 }}
+                className="rule-row flex flex-wrap items-baseline gap-[clamp(16px,4vw,48px)] px-1 py-7 transition-colors hover:bg-surface"
+              >
+                <div className="min-w-[130px] flex-initial basis-[150px]">
+                  <div className="font-mono text-[11px] uppercase tracking-[0.06em] text-accent">
                     {c.role}
-                  </span>
-                </div>
-                <a
-                  href={c.forkHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`View ${c.title} on GitHub`}
-                  className="group/link text-ink-400 transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:text-white"
-                >
-                  <ArrowUpRight size={18} />
-                </a>
-              </div>
-
-              <div className="mt-5 flex-1">
-                <h3 className="font-display text-base font-semibold text-white sm:text-lg">
-                  {c.title}
-                </h3>
-
-                <div className="mt-1 flex items-center gap-1.5 font-mono text-[11px] text-ink-400">
-                  <GitFork size={11} />
-                  <span>forked from</span>
-                  <a
-                    href={c.upstreamHref}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="transition-colors hover:text-accent-soft"
-                  >
-                    {c.upstream}
-                  </a>
+                  </div>
                 </div>
 
-                <p className="mt-3 text-sm leading-relaxed text-ink-300">
-                  {c.description}
-                </p>
-              </div>
-
-              <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
-                <div className="flex flex-wrap gap-2">
-                  {c.tags.map((t) => (
-                    <span key={t} className="chip">
-                      {t}
+                <div className="min-w-[min(100%,280px)] flex-1 basis-[400px]">
+                  <div className="flex items-baseline justify-between gap-2.5">
+                    <h3 className="font-serif text-[1.35rem] font-medium tracking-[-0.01em]">
+                      <a
+                        href={c.forkHref}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-ink transition-colors hover:text-accent"
+                      >
+                        {c.title}
+                      </a>
+                    </h3>
+                    <span className="font-mono text-[15px] text-ink-faint">
+                      ↗
                     </span>
-                  ))}
+                  </div>
+
+                  <div className="mt-1.5 font-mono text-[11.5px] text-ink-faint">
+                    forked from{" "}
+                    <a
+                      href={c.upstreamHref}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-ink-faint transition-colors hover:text-accent"
+                    >
+                      {c.upstream}
+                    </a>
+                  </div>
+
+                  <p className="mt-3 max-w-[74ch] text-[0.95rem] leading-[1.68] text-ink-muted">
+                    {c.description}
+                  </p>
+
+                  <div className="mt-3.5 font-mono text-[11px] tracking-[0.06em] text-ink-faint">
+                    {c.tags.join("   ·   ")}
+                  </div>
                 </div>
-                <a
-                  href={c.forkHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-mono text-[11px] text-ink-400 transition-colors hover:text-accent-soft"
-                >
-                  {c.fork}
-                </a>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

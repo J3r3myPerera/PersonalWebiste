@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
@@ -17,17 +16,7 @@ const links = [
 ];
 
 export default function Navigation() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -38,81 +27,65 @@ export default function Navigation() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
-  const scrolledClass = scrolled
-    ? isDark
-      ? "border-b border-white/5 bg-ink-950/75 backdrop-blur-xl shadow-none"
-      : "border-b border-black/5 bg-white/80 backdrop-blur-xl shadow-sm"
-    : "border-b border-transparent bg-transparent";
-
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolledClass}`}
-    >
-      <nav className="container-page flex h-16 items-center justify-between">
-        <a
-          href="#top"
-          className="group flex items-center gap-2 font-display text-lg font-semibold tracking-tight"
-        >
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent/15 font-mono text-sm text-accent-soft ring-1 ring-accent/30 transition-all group-hover:bg-accent/25">
+    <header className="sticky top-0 z-50 border-b border-line bg-bg">
+      <nav className="container-page flex h-[66px] items-center justify-between gap-6">
+        <a href="#top" className="flex items-center gap-3 text-ink">
+          <span className="grid h-[30px] w-[30px] place-items-center border border-line-strong font-mono text-xs font-semibold tracking-[0.04em]">
             JP
           </span>
-          <span className="hidden sm:inline">Jeremy Perera</span>
+          <span className="font-serif text-[17px] font-medium tracking-[-0.01em]">
+            Jeremy Perera
+          </span>
         </a>
 
-        <ul className="hidden items-center gap-1 md:flex">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className="rounded-full px-3 py-2 text-sm text-ink-200 transition-colors hover:bg-white/[0.05] hover:text-white nav-link"
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-2">
+          <ul className="hidden items-center xl:flex">
+            {links.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className="nav-link">
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        <div className="hidden items-center gap-2 md:flex">
           <ThemeToggle />
-          <a href="#contact" className="btn-primary !px-4 !py-2 text-sm">
+
+          <a
+            href="#contact"
+            className="hidden h-[30px] items-center bg-accent px-3 font-mono text-[11px] uppercase tracking-[0.1em] text-white transition-[filter] hover:brightness-110 sm:inline-flex"
+          >
             Let&apos;s talk
           </a>
-        </div>
 
-        <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
           <button
             aria-label="Toggle menu"
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
-            className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/[0.03] text-ink-200 mobile-menu-btn"
+            className="icon-btn h-[30px] w-[30px] xl:hidden"
           >
-            {open ? <X size={18} /> : <Menu size={18} />}
+            {open ? <X size={15} /> : <Menu size={15} />}
           </button>
         </div>
       </nav>
 
       {open && (
-        <div className="md:hidden">
-          <div className="container-page pb-4">
-            <ul
-              id="mobile-menu"
-              className="mobile-menu grid gap-1 rounded-2xl border border-white/10 bg-ink-900/80 p-2 backdrop-blur-xl"
-            >
-              {links.map((l) => (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
-                    onClick={() => setOpen(false)}
-                    className="mobile-menu-link block rounded-xl px-4 py-3 text-sm text-ink-100 hover:bg-white/[0.05] hover:text-white"
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="border-t border-line bg-bg xl:hidden">
+          <ul id="mobile-menu" className="container-page py-2">
+            {links.map((l) => (
+              <li key={l.href} className="border-b border-line last:border-b-0">
+                <a
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="block py-3 font-mono text-[11.5px] uppercase tracking-[0.12em] text-ink-muted transition-colors hover:text-ink"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </header>

@@ -1,6 +1,6 @@
 # Jeremy Perera: Personal Website
 
-Personal portfolio for **Jeremy Perera**, Associate Software Developer at IFS.
+Personal portfolio for **Jeremy Perera**, Associate Software Engineer at IFS.
 Built with **Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS** and **Framer Motion**.
 
 ## Getting started

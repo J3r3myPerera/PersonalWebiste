@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
 
 type Role = {
   company: string;
@@ -15,8 +14,8 @@ type Role = {
 const roles: Role[] = [
   {
     company: "IFS",
-    title: "Associate Software Developer",
-    period: "Jul 2024 – Present",
+    title: "Associate Software Engineer",
+    period: "Jul 2024 — Present",
     location: "Colombo, Sri Lanka",
     bullets: [
       "Contributing to enterprise software products used by customers around the world.",
@@ -28,7 +27,7 @@ const roles: Role[] = [
   {
     company: "Commercial Bank of Ceylon PLC",
     title: "Intern",
-    period: "Feb 2021 – Sep 2021",
+    period: "Feb 2021 — Sep 2021",
     location: "Head Office, Colombo 11",
     bullets: [
       "Engaged with customers across phone, email and in-person channels to provide accurate information.",
@@ -42,67 +41,66 @@ const roles: Role[] = [
 export default function Experience() {
   return (
     <section id="experience" className="section">
-      <div className="container-page">
-        <div className="mb-12 max-w-2xl">
-          <span className="eyebrow">02: Experience</span>
-          <h2 className="heading-lg">Where I&apos;ve been building things.</h2>
+      <div className="section-inner">
+        <div className="section-rail">
+          <span className="section-num">02</span>
+          <span className="section-label">Experience</span>
         </div>
 
-        <ol className="relative">
-          {/* timeline line */}
-          <div
-            aria-hidden
-            className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-white/10 via-white/10 to-transparent sm:left-5"
-          />
+        <div className="section-body">
+          <h2 className="heading-section mb-11 max-w-[18ch]">
+            Where I&rsquo;ve been building things.
+          </h2>
 
-          {roles.map((r, i) => (
-            <motion.li
-              key={r.company}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="relative mb-8 pl-14 last:mb-0 sm:pl-16"
-            >
-              <span className="timeline-icon absolute left-0 top-1.5 grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-ink-900 text-accent-soft shadow-[0_0_0_4px_rgba(124,92,255,0.08)] sm:h-10 sm:w-10">
-                <Briefcase size={16} />
-              </span>
-
-              <div className="card">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <h3 className="font-display text-base font-semibold text-white sm:text-xl">
-                    {r.title}{" "}
-                    <span className="text-ink-300">· {r.company}</span>
-                  </h3>
-                  <span className="font-mono text-xs uppercase tracking-wider text-ink-300">
+          <div className="rule-list">
+            {roles.map((r, i) => (
+              <motion.div
+                key={r.company}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className="rule-row flex flex-wrap gap-[clamp(20px,4vw,56px)] py-8"
+              >
+                <div className="min-w-[130px] flex-initial basis-[150px]">
+                  <div className="font-mono text-[11.5px] tracking-[0.06em]">
                     {r.period}
-                  </span>
+                  </div>
+                  <div className="mt-1.5 text-[12.5px] text-ink-faint">
+                    {r.location}
+                  </div>
                 </div>
-                <p className="mt-1 text-sm text-ink-300">{r.location}</p>
 
-                <ul className="mt-4 space-y-2">
-                  {r.bullets.map((b) => (
-                    <li
-                      key={b}
-                      className="relative pl-5 text-sm leading-relaxed text-ink-200"
-                    >
-                      <span className="absolute left-0 top-2 h-1.5 w-1.5 rounded-full bg-accent/80" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
+                <div className="min-w-[min(100%,280px)] flex-1 basis-[380px]">
+                  <h3 className="font-serif text-[1.45rem] font-medium tracking-[-0.01em]">
+                    {r.title}
+                  </h3>
+                  <div className="mt-1.5 font-mono text-xs uppercase tracking-[0.06em] text-accent">
+                    {r.company}
+                  </div>
 
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {r.tags.map((t) => (
-                    <span key={t} className="chip">
-                      {t}
-                    </span>
-                  ))}
+                  <ul className="mt-4 max-w-[64ch] space-y-2">
+                    {r.bullets.map((b) => (
+                      <li
+                        key={b}
+                        className="relative pl-5 text-[0.97rem] leading-[1.72] text-ink-muted"
+                      >
+                        <span className="absolute left-0 top-0 font-mono text-ink-faint">
+                          ·
+                        </span>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-5 font-mono text-xs tracking-[0.06em] text-ink-faint">
+                    {r.tags.join("   ·   ")}
+                  </div>
                 </div>
-              </div>
-            </motion.li>
-          ))}
-        </ol>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

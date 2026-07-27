@@ -9,53 +9,40 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
-        mono: ["var(--font-jetbrains-mono)", "ui-monospace", "monospace"],
+        sans: ["var(--font-plex-sans)", "system-ui", "sans-serif"],
+        serif: ["var(--font-newsreader)", "Georgia", "serif"],
+        mono: ["var(--font-plex-mono)", "ui-monospace", "monospace"],
       },
       colors: {
+        bg: "var(--bg)",
+        surface: "var(--surface)",
+        raise: "var(--raise)",
         ink: {
-          50: "#f6f7f9",
-          100: "#eceef2",
-          200: "#d5dae3",
-          300: "#b0b9c9",
-          400: "#8593ab",
-          500: "#677591",
-          600: "#525e78",
-          700: "#434c62",
-          800: "#3a4153",
-          900: "#0b0f1a",
-          950: "#05070d",
+          DEFAULT: "var(--text)",
+          muted: "var(--muted)",
+          faint: "var(--faint)",
+        },
+        line: {
+          DEFAULT: "var(--line)",
+          strong: "var(--line-strong)",
         },
         accent: {
-          DEFAULT: "#7c5cff",
-          soft: "#9b85ff",
-          glow: "#5b3df0",
+          DEFAULT: "var(--accent)",
+          soft: "var(--accent-soft)",
         },
-      },
-      backgroundImage: {
-        "grid-pattern":
-          "linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)",
-        "radial-fade":
-          "radial-gradient(ellipse at top, rgba(124,92,255,0.18), transparent 60%)",
       },
       animation: {
-        "fade-in-up": "fadeInUp 0.7s ease-out both",
-        "float-slow": "float 8s ease-in-out infinite",
-        shimmer: "shimmer 2.5s linear infinite",
+        "rise-in": "riseIn 0.8s cubic-bezier(0.22,1,0.36,1) both",
+        "line-grow": "lineGrow 1s cubic-bezier(0.22,1,0.36,1) 0.35s both",
       },
       keyframes: {
-        fadeInUp: {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
+        riseIn: {
+          "0%": { opacity: "0", transform: "translateY(16px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-12px)" },
-        },
-        shimmer: {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
+        lineGrow: {
+          "0%": { transform: "scaleX(0)" },
+          "100%": { transform: "scaleX(1)" },
         },
       },
     },
