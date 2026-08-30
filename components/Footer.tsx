@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-line">
       <div className="container-page flex flex-wrap items-center justify-between gap-5 py-9 font-mono text-xs tracking-[0.04em] text-ink-faint">
-        <span>© {year} Jeremy Perera</span>
+        <span className="tabular-nums">© {year} Jeremy Perera</span>
 
         <div className="flex items-center gap-4">
           <span className="hidden sm:inline">Colombo, Sri Lanka</span>
@@ -14,7 +14,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"
-            className="text-ink-faint transition-colors hover:text-ink"
+            className="rounded-[2px] text-ink-faint transition-colors duration-200 hover:text-ink focus:outline-none focus-visible:text-ink focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-bg"
           >
             <Github size={15} />
           </a>
@@ -23,7 +23,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
-            className="text-ink-faint transition-colors hover:text-ink"
+            className="rounded-[2px] text-ink-faint transition-colors duration-200 hover:text-ink focus:outline-none focus-visible:text-ink focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-bg"
           >
             <Linkedin size={15} />
           </a>
@@ -31,7 +31,7 @@ export default function Footer() {
 
         <a
           href="#top"
-          className="text-ink-faint transition-colors hover:text-ink"
+          className="rounded-[2px] text-ink-faint transition-colors duration-200 hover:text-ink focus:outline-none focus-visible:text-ink focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-bg"
         >
           Back to top ↑
         </a>

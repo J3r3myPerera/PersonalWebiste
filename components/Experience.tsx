@@ -63,7 +63,7 @@ export default function Experience() {
                 className="rule-row flex flex-wrap gap-[clamp(20px,4vw,56px)] py-8"
               >
                 <div className="min-w-[130px] flex-initial basis-[150px]">
-                  <div className="font-mono text-[11.5px] tracking-[0.06em]">
+                  <div className="font-mono text-[11.5px] tabular-nums tracking-[0.06em]">
                     {r.period}
                   </div>
                   <div className="mt-1.5 text-[12.5px] text-ink-faint">

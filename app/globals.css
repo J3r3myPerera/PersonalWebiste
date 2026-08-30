@@ -19,6 +19,15 @@
   --line-strong: rgba(243, 239, 230, 0.24);
   --accent: #e0653b;
   --accent-soft: rgba(224, 101, 59, 0.13);
+
+  /* Ambient depth — warm light falling from the top-left. */
+  --glow: rgba(224, 101, 59, 0.13);
+  --grain-opacity: 0.09;
+  --shadow-card: 0 1px 2px rgba(8, 6, 4, 0.5), 0 12px 32px -12px rgba(8, 6, 4, 0.7);
+
+  /* z-scale — keep every layer on this ladder. */
+  --z-nav: 50;
+  --z-grain: 100;
 }
 
 html:not(.dark) {
@@ -32,6 +41,11 @@ html:not(.dark) {
   --line-strong: rgba(26, 24, 21, 0.22);
   --accent: #b4431f;
   --accent-soft: rgba(180, 67, 31, 0.09);
+
+  --glow: rgba(180, 67, 31, 0.09);
+  --grain-opacity: 0.055;
+  /* Warm-tinted shadow, not neutral black. */
+  --shadow-card: 0 1px 2px rgba(72, 56, 42, 0.07), 0 14px 34px -14px rgba(72, 56, 42, 0.22);
 }
 
 @layer base {
@@ -49,6 +63,21 @@ html:not(.dark) {
     transition: background-color 0.3s ease, color 0.2s ease;
   }
 
+  /* Film grain over the whole page — breaks the digital flatness.
+     Pointer-events none so it never intercepts a click. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-grain);
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    /* soft-light over desaturated noise: texture without crushing contrast.
+       `overlay` flattens the palette here — don't swap it back. */
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
   ::selection {
     background: var(--accent);
     color: #fff;
@@ -63,6 +92,30 @@ html:not(.dark) {
   ::-webkit-scrollbar-thumb {
     background: var(--line-strong);
   }
+
+  /* Headings should never strand a single word on the last line. */
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
 @layer components {
@@ -76,8 +129,9 @@ html:not(.dark) {
     @apply scroll-mt-[66px] border-t border-line;
   }
 
+  /* Bottom padding runs slightly heavier than top — optically even. */
   .section-inner {
-    @apply container-page flex flex-wrap items-start gap-[clamp(28px,5vw,80px)] py-[clamp(60px,9vw,128px)];
+    @apply container-page flex flex-wrap items-start gap-[clamp(28px,5vw,80px)] pb-[clamp(68px,10vw,144px)] pt-[clamp(60px,9vw,128px)];
   }
 
   .section-rail {
@@ -85,7 +139,7 @@ html:not(.dark) {
   }
 
   .section-num {
-    @apply block font-mono text-xs tracking-[0.14em] text-accent;
+    @apply block font-mono text-xs tabular-nums tracking-[0.14em] text-accent;
   }
 
   .section-label {
@@ -107,7 +161,12 @@ html:not(.dark) {
   }
 
   .meta {
-    @apply font-mono text-xs tracking-[0.06em] text-ink-faint;
+    @apply font-mono text-xs tabular-nums tracking-[0.06em] text-ink-faint;
+  }
+
+  /* Dates, grades, scores — figures that should align in a column. */
+  .tnum {
+    @apply tabular-nums;
   }
 
   /* ── Rules ── */
@@ -120,27 +179,65 @@ html:not(.dark) {
     @apply border-b border-line;
   }
 
+  /* ── Surfaces ── */
+
+  /* Elevation only where it earns its place: the two linked cards. */
+  .card-raise {
+    @apply rounded-md border border-line-strong bg-surface shadow-[var(--shadow-card)] transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-accent;
+  }
+
+  /* Ambient warm light behind the hero — an off-centre radial wash rather
+     than a flat 45° gradient, so the top of the page has some depth. */
+  .ambient-glow {
+    @apply pointer-events-none absolute -z-10 select-none;
+    background: radial-gradient(
+      55% 60% at 18% 0%,
+      var(--glow) 0%,
+      transparent 72%
+    );
+  }
+
   /* ── Buttons ── */
 
+  .btn-base {
+    @apply inline-flex items-center justify-center gap-2 rounded-[3px] px-5 py-3 text-sm font-medium transition-[filter,background-color,border-color,transform] duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg active:translate-y-px active:scale-[0.985];
+  }
+
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2.5 rounded-[3px] bg-accent px-5 py-3 text-sm font-medium text-white transition-[filter] hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+    @apply btn-base gap-2.5 bg-accent text-white hover:brightness-110;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-[3px] border border-line-strong px-5 py-3 text-sm font-medium text-ink transition-colors hover:bg-surface;
+    @apply btn-base border border-line-strong text-ink hover:bg-surface;
   }
 
   .btn-quiet {
-    @apply inline-flex items-center justify-center gap-2 rounded-[3px] border border-line px-5 py-3 text-sm font-medium text-ink-muted transition-colors hover:border-line-strong hover:text-ink;
+    @apply btn-base border border-line text-ink-muted hover:border-line-strong hover:text-ink;
   }
 
   /* ── Nav ── */
 
   .nav-link {
-    @apply inline-block px-3 py-2 font-mono text-[11.5px] uppercase tracking-[0.12em] text-ink-muted transition-colors hover:text-ink;
+    @apply relative inline-block px-3 py-2 font-mono text-[11.5px] uppercase tracking-[0.12em] text-ink-muted transition-colors duration-200 hover:text-ink focus:outline-none focus-visible:text-ink focus-visible:ring-1 focus-visible:ring-accent;
+  }
+
+  /* Current section: a short accent rule under the label. */
+  .nav-link[aria-current="true"] {
+    @apply text-ink;
+  }
+
+  .nav-link[aria-current="true"]::after {
+    content: "";
+    @apply absolute inset-x-3 bottom-0.5 h-px bg-accent;
   }
 
   .icon-btn {
-    @apply grid place-items-center border border-line text-ink-muted transition-colors hover:border-line-strong hover:text-ink;
+    @apply grid place-items-center border border-line text-ink-muted transition-[color,border-color,transform] duration-200 hover:border-line-strong hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg active:scale-95;
+  }
+
+  /* ── Accessibility ── */
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[var(--z-nav)] focus:rounded-[3px] focus:bg-accent focus:px-4 focus:py-2.5 focus:font-mono focus:text-xs focus:uppercase focus:tracking-[0.1em] focus:text-white;
   }
 }

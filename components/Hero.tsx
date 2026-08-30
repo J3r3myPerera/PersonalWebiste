@@ -13,19 +13,28 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="container-page pb-[clamp(48px,7vw,88px)] pt-[clamp(56px,11vw,132px)]"
+      className="relative isolate overflow-hidden pb-[clamp(52px,8vw,96px)] pt-[clamp(56px,11vw,132px)]"
     >
+      <div
+        aria-hidden
+        className="ambient-glow absolute inset-x-0 -top-24 h-[560px]"
+      />
+
       <motion.div
+        className="container-page"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="mb-[clamp(28px,5vw,48px)] flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-[0.14em] text-ink-faint">
           <span className="inline-flex items-center gap-2 text-accent">
-            <span className="h-[7px] w-[7px] rounded-full bg-accent" />
+            <span className="relative flex h-[7px] w-[7px]">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+              <span className="relative inline-flex h-[7px] w-[7px] rounded-full bg-accent" />
+            </span>
             Available for collaboration
           </span>
-          <span className="text-line-strong">/</span>
+          <span className="text-ink-faint/60">/</span>
           <span>Colombo, Sri Lanka</span>
         </div>
 
@@ -75,16 +84,16 @@ export default function Hero() {
                 href="https://github.com/J3r3myPerera"
                 target="_blank"
                 rel="noreferrer"
-                className="text-ink-faint transition-colors hover:text-ink"
+                className="rounded-[2px] text-ink-faint transition-colors duration-200 hover:text-ink focus:outline-none focus-visible:text-ink focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-bg"
               >
                 GitHub ↗
               </a>
-              <span className="text-line-strong">/</span>
+              <span className="text-ink-faint/60">/</span>
               <a
                 href="https://linkedin.com/in/dinuka-jeremy"
                 target="_blank"
                 rel="noreferrer"
-                className="text-ink-faint transition-colors hover:text-ink"
+                className="rounded-[2px] text-ink-faint transition-colors duration-200 hover:text-ink focus:outline-none focus-visible:text-ink focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-bg"
               >
                 LinkedIn ↗
               </a>
@@ -95,12 +104,14 @@ export default function Hero() {
             {heroFacts.map((f) => (
               <div
                 key={f.k}
-                className="flex justify-between gap-4 border-b border-line py-3.5"
+                className="flex justify-between gap-4 border-b border-line py-3.5 transition-colors duration-200 hover:border-line-strong"
               >
                 <dt className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-faint">
                   {f.k}
                 </dt>
-                <dd className="m-0 text-right text-[13.5px]">{f.v}</dd>
+                <dd className="m-0 text-right text-[13.5px] tabular-nums">
+                  {f.v}
+                </dd>
               </div>
             ))}
           </dl>

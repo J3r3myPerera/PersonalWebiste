@@ -67,7 +67,7 @@ export default function Contact() {
                     href={s.href}
                     target={s.href.startsWith("http") ? "_blank" : undefined}
                     rel="noreferrer"
-                    className="rule-row flex items-center justify-between gap-4 py-5 text-ink transition-[padding] hover:pl-2"
+                    className="rule-row group flex items-center justify-between gap-4 py-5 text-ink transition-transform duration-200 hover:translate-x-1.5 focus:outline-none focus-visible:translate-x-1.5 focus-visible:ring-1 focus-visible:ring-accent"
                   >
                     <span>
                       <span className="block font-mono text-[11px] uppercase tracking-[0.12em] text-ink-faint">
@@ -77,7 +77,9 @@ export default function Contact() {
                         {s.handle}
                       </span>
                     </span>
-                    <span className="font-mono text-base text-accent">↗</span>
+                    <span className="font-mono text-base text-accent transition-transform duration-200 group-hover:-translate-y-px">
+                      ↗
+                    </span>
                   </a>
                 </li>
               ))}
