@@ -76,7 +76,7 @@ export default function Education() {
                   <h3 className="font-serif text-[1.4rem] font-medium tracking-[-0.01em]">
                     {e.school}
                   </h3>
-                  <span className="font-mono text-[11.5px] text-ink-faint">
+                  <span className="font-mono text-[11.5px] tabular-nums text-ink-faint">
                     {e.period}
                   </span>
                 </div>
@@ -86,7 +86,7 @@ export default function Education() {
                 <div className="mt-2 text-[0.98rem] font-medium text-accent">
                   {e.degree}
                 </div>
-                <div className="mt-4 font-mono text-[11.5px] leading-[1.9] tracking-[0.05em] text-ink-muted">
+                <div className="mt-4 font-mono text-[11.5px] tabular-nums leading-[1.9] tracking-[0.05em] text-ink-muted">
                   {e.notes.join("   ·   ")}
                 </div>
               </motion.div>

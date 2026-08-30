@@ -152,7 +152,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5 }}
-          className="block rounded border border-line-strong bg-surface p-[clamp(28px,4vw,52px)] text-ink transition-colors hover:border-accent"
+          className="card-raise block p-[clamp(28px,4vw,52px)] text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-bg"
         >
           <div className="flex flex-wrap items-baseline justify-between gap-4">
             <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
@@ -186,9 +186,9 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.45, delay: (i % 6) * 0.04 }}
-                className="rule-row flex flex-wrap items-baseline gap-[clamp(16px,4vw,48px)] px-1 py-7 text-ink transition-colors hover:bg-surface"
+                className="rule-row group flex flex-wrap items-baseline gap-[clamp(16px,4vw,48px)] px-1 py-7 text-ink transition-colors duration-200 hover:bg-surface focus:outline-none focus-visible:bg-surface focus-visible:ring-1 focus-visible:ring-accent"
               >
-                <span className="shrink-0 grow-0 basis-[118px] font-mono text-[11.5px] tracking-[0.03em] text-ink-faint">
+                <span className="shrink-0 grow-0 basis-[118px] font-mono text-[11.5px] tabular-nums tracking-[0.03em] text-ink-faint">
                   {p.period}
                 </span>
                 <div className="min-w-[min(100%,280px)] flex-1 basis-[420px]">
@@ -197,7 +197,7 @@ export default function Projects() {
                       {p.title}
                     </h3>
                     {p.href && (
-                      <span className="font-mono text-[15px] text-ink-faint">
+                      <span className="font-mono text-[15px] text-ink-faint transition-[color,transform] duration-200 group-hover:-translate-y-px group-hover:text-accent">
                         ↗
                       </span>
                     )}

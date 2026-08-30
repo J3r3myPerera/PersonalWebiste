@@ -12,18 +12,20 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen">
+    <>
       <Navigation />
-      <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Education />
-      <VolunteerWork />
-      <OpenSource />
-      <Contact />
+      <main id="main" className="relative min-h-[100dvh]">
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Education />
+        <VolunteerWork />
+        <OpenSource />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

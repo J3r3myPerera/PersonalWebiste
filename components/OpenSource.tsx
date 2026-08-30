@@ -86,7 +86,7 @@ export default function OpenSource() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="rule-row flex flex-wrap items-baseline gap-[clamp(16px,4vw,48px)] px-1 py-7 transition-colors hover:bg-surface"
+                className="rule-row group flex flex-wrap items-baseline gap-[clamp(16px,4vw,48px)] px-1 py-7 transition-colors duration-200 hover:bg-surface"
               >
                 <div className="min-w-[130px] flex-initial basis-[150px]">
                   <div className="font-mono text-[11px] uppercase tracking-[0.06em] text-accent">
@@ -101,12 +101,15 @@ export default function OpenSource() {
                         href={c.forkHref}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-ink transition-colors hover:text-accent"
+                        className="text-ink transition-colors duration-200 hover:text-accent focus:outline-none focus-visible:text-accent focus-visible:ring-1 focus-visible:ring-accent"
                       >
                         {c.title}
                       </a>
                     </h3>
-                    <span className="font-mono text-[15px] text-ink-faint">
+                    <span
+                      aria-hidden
+                      className="font-mono text-[15px] text-ink-faint transition-[color,transform] duration-200 group-hover:-translate-y-px group-hover:text-accent"
+                    >
                       ↗
                     </span>
                   </div>
@@ -117,7 +120,7 @@ export default function OpenSource() {
                       href={c.upstreamHref}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-ink-faint transition-colors hover:text-accent"
+                      className="text-ink-faint transition-colors duration-200 hover:text-accent focus:outline-none focus-visible:text-accent focus-visible:ring-1 focus-visible:ring-accent"
                     >
                       {c.upstream}
                     </a>

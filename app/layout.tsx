@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Newsreader, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import ThemeProvider from "@/components/ThemeProvider";
 import "./globals.css";
@@ -28,6 +28,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jeremyperera.com"),
   title: "Jeremy Perera: Associate Software Engineer",
   description:
     "Personal site of Jeremy Perera, Associate Software Engineer at IFS. Building thoughtful software, exploring data, and shipping ideas.",
@@ -45,7 +46,21 @@ export const metadata: Metadata = {
     description:
       "Personal site of Jeremy Perera, Associate Software Engineer at IFS.",
     type: "website",
+    locale: "en_GB",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jeremy Perera: Associate Software Engineer",
+    description:
+      "Personal site of Jeremy Perera, Associate Software Engineer at IFS.",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f4f1ea" },
+    { media: "(prefers-color-scheme: dark)", color: "#100f0d" },
+  ],
 };
 
 export default function RootLayout({
@@ -60,6 +75,9 @@ export default function RootLayout({
       className={`${plexSans.variable} ${newsreader.variable} ${plexMono.variable}`}
     >
       <body className="font-sans">
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

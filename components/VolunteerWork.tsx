@@ -61,11 +61,14 @@ export default function VolunteerWork() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="block rounded border border-line-strong p-[clamp(24px,3vw,40px)] text-ink transition-colors hover:border-accent"
+                className="card-raise block p-[clamp(24px,3vw,40px)] text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-bg"
               >
                 <div className="flex flex-wrap items-center justify-between gap-3.5">
                   <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.1em] text-accent">
-                    <span className="h-[7px] w-[7px] rounded-full bg-[#3fbf7a]" />
+                    <span className="relative flex h-[7px] w-[7px]">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+                      <span className="relative inline-flex h-[7px] w-[7px] rounded-full bg-accent" />
+                    </span>
                     {statusLabel[p.status]}
                   </span>
                   <span className="meta">
